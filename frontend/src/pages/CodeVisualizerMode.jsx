@@ -72,6 +72,7 @@ public:
 };
 
 const CodeVisualizerMode = () => {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://algomind-ai-axmv.onrender.com';
   const [language, setLanguage] = useState('java');
   const [manualAlgorithm, setManualAlgorithm] = useState('AUTO');
   const [code, setCode] = useState(BOILERPLATES['java']);
@@ -98,7 +99,7 @@ const CodeVisualizerMode = () => {
       setErrorShown(false);
       
       try {
-          const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/visualize`, {
+          const response = await fetch(`${API_BASE_URL}/api/v1/visualize`, {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'
@@ -153,7 +154,7 @@ const CodeVisualizerMode = () => {
   const fetchAIInsights = async (algoType) => {
       setIsAiLoading(true);
       try {
-          const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/mentor/analyze`, {
+          const response = await fetch(`${API_BASE_URL}/api/v1/mentor/analyze`, {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'

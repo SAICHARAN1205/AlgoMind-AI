@@ -1,8 +1,8 @@
 import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '');
-const WS_URL = import.meta.env.VITE_WS_URL || `${(API_BASE_URL || '').replace(/^http:\/\//, 'ws://').replace(/^https:\/\//, 'wss://')}/ws`;
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || 'https://algomind-ai-axmv.onrender.com').replace(/\/$/, '');
+const WS_URL = import.meta.env.VITE_WS_URL || `${API_BASE_URL.replace(/^http:\/\//, 'ws://').replace(/^https:\/\//, 'wss://')}/ws`;
 
 class WebSocketService {
   constructor() {
