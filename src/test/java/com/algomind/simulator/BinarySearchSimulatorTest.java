@@ -46,8 +46,8 @@ class BinarySearchSimulatorTest {
         List<ExecutionState> states = simulator.simulate(context);
         
         ExecutionState finalState = states.get(states.size() - 1);
-        assertEquals(OperationType.COMPLETE, finalState.getOperationType());
-        assertEquals("Target not found", finalState.getMessage());
+        assertEquals(OperationType.NOT_FOUND, finalState.getOperationType());
+        assertEquals("Target not found in array", finalState.getMessage());
     }
     
     @Test
