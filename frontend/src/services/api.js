@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || 'https://algomind-ai-axmv.onrender.com').replace(/\/$/, '');
+const API_BASE_URL = import.meta.env.PROD 
+  ? 'https://algomind-ai-axmv.onrender.com'
+  : (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080').replace(/\/$/, '');
 const API_V1_BASE_URL = `${API_BASE_URL}/api/v1`;
 
 // SockJS requires http:// or https:// URLs — it handles the WebSocket upgrade internally.
