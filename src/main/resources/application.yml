@@ -1,4 +1,7 @@
-gemini:
+server:
+  port: ${PORT:8080}
+
+  gemini:
   api-key: ${GEMINI_API_KEY}
 
 openai:
