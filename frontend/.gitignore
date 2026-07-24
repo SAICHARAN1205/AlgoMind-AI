@@ -22,9 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-# Environment
+# Environment (keep .env.production committed for deployment)
 .env
-.env.*
+.env.local
+.env.*.local
 
 # Java
 target/

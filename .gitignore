@@ -1,6 +1,7 @@
-# Environment
+# Environment (keep .env.production committed for deployment)
 .env
-.env.*
+.env.local
+.env.*.local
 
 # Build
 target/
