@@ -1,17 +1,11 @@
-import axios from 'axios';
-
-const API_BASE_URL = `${(import.meta.env.VITE_API_BASE_URL || 'https://algomind-ai-axmv.onrender.com').replace(/\/$/, '')}/api/v1`;
+import { api } from './api.js';
 
 export const ExecutionService = {
   executeCode: async (code, sessionId) => {
     try {
-      const response = await axios.post(`${API_BASE_URL}/execute`, {
+      const response = await api.post('/execute', {
         code,
         sessionId
-      }, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
       });
       return response.data;
     } catch (error) {
@@ -22,13 +16,9 @@ export const ExecutionService = {
   
   executeAlgorithm: async (algorithmName, sessionId) => {
     try {
-      const response = await axios.post(`${API_BASE_URL}/execute`, {
+      const response = await api.post('/execute', {
         code: `${algorithmName}()`,
         sessionId
-      }, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
       });
       return response.data;
     } catch (error) {
@@ -39,7 +29,7 @@ export const ExecutionService = {
 
   getLearnAlgorithm: async (algorithmId) => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/learn/${algorithmId}`);
+      const response = await api.get(`/learn/${algorithmId}`);
       return response.data;
     } catch (error) {
       console.error('Learn API error:', error);

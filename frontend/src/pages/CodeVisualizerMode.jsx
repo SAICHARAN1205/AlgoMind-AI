@@ -17,6 +17,7 @@ import AIMentorPanel from '../components/visualizer/AIMentorPanel.jsx';
 
 import PlaybackControls from '../components/controls/PlaybackControls.jsx';
 import VariablesPanel from '../components/visualizer/VariablesPanel.jsx';
+import { API_BASE_URL } from '../services/api.js';
 
 const BOILERPLATES = {
   java: `class Solution {
@@ -72,7 +73,6 @@ public:
 };
 
 const CodeVisualizerMode = () => {
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://algomind-ai-axmv.onrender.com';
   const [language, setLanguage] = useState('java');
   const [manualAlgorithm, setManualAlgorithm] = useState('AUTO');
   const [code, setCode] = useState(BOILERPLATES['java']);
