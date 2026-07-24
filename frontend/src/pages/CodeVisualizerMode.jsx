@@ -98,7 +98,7 @@ const CodeVisualizerMode = () => {
       setErrorShown(false);
       
       try {
-          const response = await fetch('http://localhost:8080/api/v1/visualize', {
+          const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/visualize`, {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'
@@ -153,7 +153,7 @@ const CodeVisualizerMode = () => {
   const fetchAIInsights = async (algoType) => {
       setIsAiLoading(true);
       try {
-          const response = await fetch('http://localhost:8080/api/v1/mentor/analyze', {
+          const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/mentor/analyze`, {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'
